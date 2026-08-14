@@ -4,12 +4,12 @@
 
 local Config = {
     GroupId = 1884157460, -- ID твоей группы
-    GroupLink = "https://roblox.com.bz/communities/1884157460/", -- Ссылка на официальную группу
+    GroupLink = "https://www.roblox.com/groups/1884157460", -- Ссылка на группу
     LoaderURL = "https://raw.githubusercontent.com/TheIronScripts/TheIronScript-HUB/main/loader.lua"
 }
 
--- Загрузка Orion Library
-local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+-- Рабочая ссылка на Orion Library
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/jensonhirst/Orion/main/source'))()
 local LocalPlayer = game.Players.LocalPlayer
 
 -- Функция проверки группы
@@ -33,7 +33,7 @@ if CheckGroup() then
     return
 end
 
--- Если НЕ в группе — открываем окно проверки
+-- Окно проверки
 local Window = OrionLib:MakeWindow({
     Name = "HUNTER HUB | Group Lock",
     HidePremium = true,
@@ -55,7 +55,7 @@ GroupTab:AddSection({
 
 GroupTab:AddLabel("Created by TheOldScript")
 
--- Кнопка проверки вступления в группу
+-- Кнопка проверки вступления
 GroupTab:AddButton({
     Name = "Check Group Membership",
     Callback = function()
@@ -70,7 +70,6 @@ GroupTab:AddButton({
             task.wait(1)
             OrionLib:Destroy()
             
-            -- Загружаем твой скрипт
             loadstring(game:HttpGet(Config.LoaderURL))()
         else
             OrionLib:MakeNotification({
@@ -83,7 +82,7 @@ GroupTab:AddButton({
     end
 })
 
--- Кнопка копирования ссылки на группу
+-- Кнопка копирования ссылки
 GroupTab:AddButton({
     Name = "Copy Group Link",
     Callback = function()
